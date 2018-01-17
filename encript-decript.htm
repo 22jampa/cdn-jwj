@@ -1,0 +1,107 @@
+<div class='post-body entry-content' id='post-body-44195887699853180' itemprop='articleBody'>
+<center>
+<img alt="Criptografar e descriptografar JavaScript e código HTML" border="0" height="260" src="http://4.bp.blogspot.com/-hT8jGId1Tkc/U04EkV1erOI/AAAAAAAADwA/lZbYUleaRMQ/s1600/Captura.JPG" style="border-width: 0px; display: block; float: none; margin-left: auto; margin-right: auto;" title="Encriptar y Desencriptar Código JavaScript y HTML" width="447" /></center>
+<br />
+<br />
+&lt;!-- Criptografe  de forma simples o código HTML e, assim, evite que os curiosos copiem. Digite o código na janela ou cole o HTML, você ainda conta com a possibilidade de uma visualização criptografada do resultado. <br />
+Você também pode retornar ao código HTML original. Para facilitar a edição posterior, há um botão de seleção que copia o código para a área de transferência. --&gt;<br />
+<br />
+&nbsp; &nbsp; &nbsp; <b>1.</b> Copie seu código que deseja criptografar.<br />
+&nbsp; &nbsp; &nbsp;<b> 2.</b> Cole seu código na caixa de texto.<br />
+&nbsp; &nbsp; &nbsp;<b> 3.</b> Clique no botão "ENCRIPTAR".<br />
+&nbsp; &nbsp; &nbsp;<b> 3.</b> Clique no botão "PREVISUALIZAR".<br />
+&nbsp; &nbsp; <b>&nbsp; 4.</b> Selecione o texto criptografado.<br />
+&nbsp; &nbsp; &nbsp; <b>5.</b> Cole o código criptografado no lugar do código original que você usou.<br />
+<div style="text-align: center;">
+<br /></div>
+<div style="text-align: left;">
+Recomenda-se que você use apenas esse método em locais que exigem maior segurança. </div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: center;">
+<span style="color: #444444; font-family: Georgia, serif;"><span style="line-height: 18px;"><b>HTML/JAVASCRIPT CODIGO:&nbsp;</b></span></span><br />
+<span style="color: #444444; font-family: Georgia, serif;"><span style="line-height: 18px;"><b><br /></b></span></span>
+
+
+<html>
+<head>
+<!-- PRIMER PASO: Copiar dentro del tag HEAD -->
+<script type="text/javascript">
+<!--
+
+// -- iniciamos la variable del número de veces encriptada
+var as=0;
+// -- creamos la función para la Encriptación
+function codificar()
+{
+codigo = document.form.texto.value;
+if (codigo)
+{
+document.form.texto.value='Encriptando.... un momento por favor!'; // -- Mensaje en la caja de texto
+setTimeout("compilar()",1500); // -- Tiempo que muestra el mensaje 1,5 segundos
+}
+// -- Pulsamos Encriptar con la caja de texto vacia
+else alert('Antes de clicar em criptografar, você deve escrever o código HTML') // -- Mensaje de aviso de caja vacia
+}
+// -- Creamos la función que escribe el código en la caja de texto
+function compilar()
+{
+document.form.texto.value='';
+compilado=escape(codigo);
+document.form.texto.value="<script>\n<!--\ndocument.write(unescape(\""+compilado+"\"));\n//-->\n<\/script>";
+// -- Averiguamos el número de veces que ha sido encriptada
+as++;
+if (as=1) alert("Página encriptada!"); // -- Si es la primera encriptación
+else alert("Página encriptada "+as+" veces!"); // -- Si se ha encriptado más de una vez
+}
+// -- Creamos la función de selección del texto en la caja
+function seleccionar()
+{
+if(document.form.texto.value.length>0)
+{
+document.form.texto.focus();
+document.form.texto.select();
+}
+else alert('No hay nada para seleccionar') // -- Mensaje si la caja de texto esta vacia
+}
+// -- Creamos la función de previsualización en una ventana nueva
+function previsualizar()
+{
+if(document.form.texto.value.length>0)
+{
+previo=window.open("","Previsualizar","scrollbars=1,menubar=1,status=1,width=640,height=320,left=100,top=100"); // -- Crea la ventana, las medidas son editables
+previo.document.write(document.form.texto.value);
+}
+else alert('No hay nada para previsualizar') // -- Mensaje si la caja de texto no contiene ningun código
+}
+// -- Creamos la función para desencriptar el código
+function decompilar()
+{
+if (document.form.texto.value.length>0)
+{
+decompilado=unescape(document.form.texto.value);
+document.form.texto.value=""+decompilado+"";
+}
+else alert('No hay nada para desencriptar') // -- Mensaje si la caja de texto no contiene ningun código
+}
+// Final del script
+// -->
+</script>
+</head>
+<body>
+<!-- SEGUNDO PASO: Copiar dentro del tag BODY -->
+
+<form align="center" method="post" name="form">
+<div align="center">
+<textarea cols="60" name="texto" rows="10"></textarea><br /> <!-- Caja de texto -->
+<br />
+<br />
+<input onclick="codificar()" type="button" value="Encriptar" /> <!-- Boton encriptar anidado a la función codificar del script -->
+<input onclick="previsualizar()" type="button" value="Previsualizar" /> <!-- Boton previsualizar anidado a la función previsualizar del script -->
+<input onclick="seleccionar()" type="button" value="Selecionar" /> <!-- Boton selecciónar anidado a la función seleccionar del script -->
+<input onclick="decompilar()" type="button" value="Desencriptar" /> <!-- Boton desencriptar anidado a la función decompilar del script -->
+<input type="reset" value="Limpar" /> <!-- Boton borrar para eliminar el contenido de la caja -->
+</div>
+</form>
+</body>
+</html>
